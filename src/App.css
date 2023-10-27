@@ -1,4 +1,17 @@
+body {
+  background-color: #101010;
+}
+
+a {
+  color: #FFF;
+  font-size: 18px;
+  margin: 5px;
+}
+
 .App {
+  background-color: #101010;
+  color: #FFF;
+  height: 100vh;
   text-align: center;
 }
 
