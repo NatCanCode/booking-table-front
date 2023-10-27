@@ -28,6 +28,7 @@ const SignInForm2 = () => {
     })
 
     const handleAuthentification = async (values) => {
+        console.log(values)
         try {
             const response = await fetch("http://localhost:3000/auth/signin", {
                 method: "POST",
@@ -36,12 +37,14 @@ const SignInForm2 = () => {
                 },
                 body: JSON.stringify(values),
             })
+            console.log(response)
 
-            if (response.jwt) {
-                const { jwt } = await response.json()
+            // if (response.jwt) {
+            if (response) {
+                const { token } = await response.json()
 
-                localStorage.setItem("jwt", jwt)
-                console.log("Authentification succeeded. Token found in localStorage: ", jwt)
+                localStorage.setItem("jwt", token)
+                console.log("Authentification succeeded. Token found in localStorage: ", token)
             }
         } catch (error) {
             console.log("Authentification error: ", error)
